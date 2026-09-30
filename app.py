@@ -52,6 +52,7 @@ main_content.pack(side="left", fill="both", expand=True)
 header_frame =ctk.CTkFrame(main_content)
 header_frame.pack(side="top",fill="x")
 
+
 #Add a label to main window
 dashboard_title = ctk.CTkLabel(header_frame, text ="Dashboard",font=("Arial", 24, "bold"))
 dashboard_title.pack(anchor="w",padx=35, pady=(30, 0))
@@ -59,9 +60,42 @@ dashboard_title.pack(anchor="w",padx=35, pady=(30, 0))
 dashboard_description= ctk.CTkLabel(header_frame, text="Your productivity overview",font=("Arial", 14))
 dashboard_description.pack(anchor="w",padx=35, pady=(0, 10))
 
+#profile button 
+profile_icon = LucideIcon("circle-user-round", size=44,color="#1E1EE0")
+profile_btn= ctk.CTkButton(header_frame,text="",image=profile_icon,fg_color="transparent",corner_radius=22,width=45,height=45,font=("Arial", 15, "bold") )
+profile_btn.place(relx=1.0, x=-7, y=35, anchor="ne")
+
+#cards_container 
+cards_container =ctk.CTkFrame(main_content,border_color="#1E1EE0")
+cards_container.pack(side="top",fill="x",padx=30,pady=5)
+cards_container.grid_columnconfigure(0, weight=1)
+cards_container.grid_columnconfigure(1, weight=1)
+
+#card1
+total_task_card=ctk.CTkButton(cards_container,border_width=1,border_color="white",width=200,height=100,text="Total Tasks\n 24")
+total_task_card.grid(row=0,column=0,padx=10,pady=10,sticky="ew")
+
+#card2
+Completed_card=ctk.CTkButton(cards_container,border_width=1,border_color="white",width=200,height=100,text="Completed\n 16")
+Completed_card.grid(row=0,column=1,padx=10,pady=10,sticky="ew")
+
+#card3
+Pending_card=ctk.CTkButton(cards_container,border_width=1,border_color="white",width=200,height=100,text="Pending\n 8")
+Pending_card.grid(row=1,column=0,padx=10,pady=10,sticky="ew")
+
+#card4
+Productivity_card=ctk.CTkButton(cards_container,border_width=1,border_color="white",width=200,height=100,text="Productivity\n 67%")
+Productivity_card.grid(row=1,column=1,padx=10,pady=10,sticky="ew")
+
+
+
+
+
+
 
 # Keep the application running
 app.mainloop()
+
 
 
 
