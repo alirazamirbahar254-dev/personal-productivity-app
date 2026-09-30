@@ -11,11 +11,6 @@ app.geometry("1200x700")
 app.title("Personal Productivity")
 # access to user can be adjest the window size
 app.resizable(True, True)
-#Add a label to main window
-#labels = ctk.CTkLabel(app, text = "Hello world")
-
-# display in main window 
-#labels.pack()
 
 # creating a sidebar
 sidebar = ctk.CTkFrame(app, width=200,border_width=1,border_color="#8A8A8A")
@@ -51,15 +46,23 @@ analytics_btn.pack(pady="5", padx=15, fill="x")
 settings_btn = ctk.CTkButton(sidebar, text="Settings",image=settings_icon,fg_color="transparent",anchor="w")
 settings_btn.pack(pady="5", padx=15, fill="x")
 
+main_content =ctk.CTkFrame(app)
+main_content.pack(side="left", fill="both", expand=True)
 
+header_frame =ctk.CTkFrame(main_content)
+header_frame.pack(side="top",fill="x")
 
+#Add a label to main window
+dashboard_title = ctk.CTkLabel(header_frame, text ="Dashboard",font=("Arial", 24, "bold"))
+dashboard_title.pack(anchor="w",padx=35, pady=(30, 0))
 
-
-
-
+dashboard_description= ctk.CTkLabel(header_frame, text="Your productivity overview",font=("Arial", 14))
+dashboard_description.pack(anchor="w",padx=35, pady=(0, 10))
 
 
 # Keep the application running
 app.mainloop()
+
+
 
 
